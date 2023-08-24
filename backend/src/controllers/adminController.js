@@ -39,7 +39,7 @@ module.exports.registerCompanyController = async (req, res) => {
   //   return res.status(500).send("Company Already exists , login to continue");
   // }
 
-  await adminModelData 
+  await adminModelData
     .save()
     .then(() => {
       console.log(adminModelData);

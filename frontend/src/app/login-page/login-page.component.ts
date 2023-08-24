@@ -16,12 +16,18 @@ export class LoginPageComponent {
     private authService: AuthService
   ) {}
 
-  onLoginButtonClicked(Company_Name: string, password: string) {
-    this.authService
-      .login(Company_Name, password)
-      .subscribe((res: HttpResponse<any>) => {
-        this.router.navigate(['/lists']);
+  Company_Name = '';
+  password = '';
+
+  onLoginButtonClicked() {
+    this.authService.login(this.Company_Name, this.password).subscribe(
+      (res) => {
         console.log(res);
-      });
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.log('Error', error);
+      }
+    );
   }
 }

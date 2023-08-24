@@ -1,0 +1,78 @@
+<style>
+  table,
+  th,
+  td {
+    border: 2px solid black;
+  }
+</style>
+
+<div>
+  <button
+    type="button"
+    (click)="onLogoutButtonClicked()"
+    style="position: absolute; right: 50px; font-weight: bold"
+    class="btn btn-danger"
+  >
+    Logout
+  </button>
+</div>
+<br />
+<br />
+<div style="border: 3px solid black" class="container mt-4">
+  <div style="padding: 15px; border: none" class="card">
+    <h1 style="margin: auto">{{ currentCompanyName }} Employee Table</h1>
+    <button
+      style="
+        border: 3px solid black;
+        width: 170px;
+        margin-top: 30px;
+        margin-left: 85%;
+        text-align: center;
+        font-weight: 700;
+        background: lightgray;
+      "
+      type="button"
+      class="btn"
+      (click)="addEmployeeButtonClicked()"
+    >
+      ADD Employee
+    </button>
+    <table
+      style="text-align: center; padding: 15px; margin-top: 30px"
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Employee of EmployeeArray">
+          <td>{{ Employee.name | uppercase }}</td>
+          <td>{{ Employee.email }}</td>
+          <td>{{ Employee.phone }}</td>
+          <td style="">
+            <button
+              style="margin-right: 10px"
+              type="button"
+              class="btn btn-success"
+              (click)="setUpdate(Employee)"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="setDelete(Employee)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -18,7 +18,11 @@ export class AuthService {
     return this.webService.login(Company_Name, password).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {
-        this.setSession(res.body._id!, res.headers.get('authorization')!);
+        this.setSession(
+          res.body.admin._id!,
+          res.body.admin.Company_Name,
+          res.body.token
+        );
         console.log('Logged In!!!');
       })
     );
@@ -33,30 +37,20 @@ export class AuthService {
     return this.webService.signup(Company_Name, location, password).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {
-        console.log(
-          'Company Registered Successfully',
-          res,
-          res.body,
-          res.body.companyDoc,
-          res.body.message
-        );
+        console.log('Company Registered Successfully', res);
       })
     );
-
-    // return this.webService
-    //   .signup(Company_Name, location, password)
-    //   .subscribe((res) => {
-    //     console.log(res);
-    //   });
   }
 
-  private setSession(compId: string, authToken: string) {
+  private setSession(compId: string, Company_Name: string, authToken: string) {
     localStorage.setItem('compId', compId);
+    localStorage.setItem('company-name', Company_Name);
     localStorage.setItem('authorization', authToken);
   }
 
   private removeSession() {
     localStorage.removeItem('compId');
+    localStorage.removeItem('company-name');
     localStorage.removeItem('authorization');
   }
 }

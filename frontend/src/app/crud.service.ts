@@ -24,7 +24,7 @@ export class CrudService {
     return this.webReqService.delete(`company/delete/${id}`);
   }
 
-  getTasks(compId: string) {
+  getAllEmployee(compId: string) {
     return this.webReqService.get(`company/${compId}/employee`);
   }
 

@@ -1,0 +1,59 @@
+<div style="border: 3px solid black" class="container mt-4">
+  <div style="border: none; padding: 15px" class="card">
+    <h1 style="margin: auto">Update Employee</h1>
+
+    <form style="margin-top: 15px">
+      <div class="mb-3">
+        <label style="font-weight: bold" class="form-label">Name </label>
+        <input
+          style="border: 1px solid"
+          type="text"
+          [(ngModel)]="name"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter your Name"
+          autocomplete="off"
+        />
+      </div>
+      <div class="mb-3">
+        <label style="font-weight: bold" class="form-label">Email </label>
+        <input
+          style="border: 1px solid"
+          type="email"
+          [(ngModel)]="email"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter your Email"
+          autocomplete="off"
+        />
+      </div>
+      <div class="mb-3">
+        <label style="font-weight: bold" class="form-label">Phone </label>
+        <input
+          style="border: 1px solid"
+          type="text"
+          [(ngModel)]="phone"
+          [ngModelOptions]="{ standalone: true }"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter your Phone number"
+          autocomplete="off"
+        />
+      </div>
+
+      <button
+        style="margin-left: 47%"
+        type="submit"
+        (click)="UpdateRecords()"
+        class="btn btn-primary"
+      >
+        Update
+      </button>
+    </form>
+  </div>
+</div>
